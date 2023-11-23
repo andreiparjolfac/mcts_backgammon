@@ -1,5 +1,38 @@
 # mcts_backgammon
 
+<h3>Node.py</h3>
+<p>Clasa <b>Node</b> implementeaza toate cele 4 etape din algoritmul Monte Carlo Tree Search</p>
+<ol>
+  <li>
+    select - Selecteaza cel mai promitator nod copil din lista comparand ratele de castig ale tuturor copiiilor
+  </li>
+  <li>
+    expand - Promoveaza un nod frunza astfel: calculeaza miscarile posibile si le adauga ca si copiii nodului curent
+  </li>
+  <li>
+    backprop - Propaga rezultatul unei simulari plecand de la nodurile frunza pana la radacina.
+  </li>
+  <li>
+    simulate - Simuleaza un folosind miscari posibile dar aleatoare. 
+  </li>
+</ol>
+<p>Alte metode ajutatoare ale clasei Node:</p>
+<ul>
+  <li>
+    get_root - returneaza radacina arborelui de cautare
+  </li>
+  <li>
+    compute_UCB - calculeaza scorul nodului , folosind numarul de vizite si numarul de castiguri impreuna cu o constanta
+    formula folosita <i>self.wins/self.visits + c * math.sqrt(math.log(self.get_root().visits)/self.visits)</i>
+  </li>
+  <li>
+    is_leaf_node - calculeaza daca nodul curent este nod frunza
+  </li>
+  <li>
+    is_fully_expanded - calculeaza daca nodul curent a folosit toate miscarile posibile pentru a se extinde
+  </li>
+</ul>
+
 
 <h3>Dice.py</h3>
   <p>Clasa <b>Dice</b> reprezinta zarurile folosite in joc. O pereche de zaruri este reprezentata intern printr-un vector care este folosit mai departe in functiile de generare a miscarilor posibile pentru ambii jucatrori.</p>
