@@ -1,7 +1,7 @@
 # mcts_backgammon
 
 <h3>Node.py</h3>
-<p>Clasa <b>Node</b> implementeaza toate cele 4 etape din algoritmul Monte Carlo Tree Search</p>
+<p>Clasa <b>Node</b> implementeaza toate cele 4 etape din algoritmul Monte Carlo Tree Search. Un nod urmareste de cate ori a fost vizitat si de cate ori a fost simulata o victorie folosind mutarea asociata nodului . El primeste atunci cand este creat o stare si un zar si isi calculeaza miscarile posibile care ulterior vor deveni copiii nodului.</p>
 <ol>
   <li>
     select - Selecteaza cel mai promitator nod copil din lista comparand ratele de castig ale tuturor copiiilor
@@ -33,6 +33,33 @@
   </li>
 </ul>
 
+<h3>
+  Backgammon.py
+</h3>
+<p>
+  Clasa <b>Backgammon</b> este o clasa ajutatoare care calculeaza mutarile posibile si aplica o mutare impreuna cu o stare.
+  Metodele pe care le implementeaza sunt :
+</p>
+<ul>
+  <li>
+  get_all_valid_moves - returneaza toate mutarile posibile in contextul unei stari date si a unui zar deja aruncat.
+  ** numarul de mutari returnate este limitat pentru performanta
+  </li>
+  <li>
+    valid_move_generator - este un generator de mutari folosit de catre metoda get_all_valid_moves
+  </li>
+  <li>
+    is_valid_move - calculeaza daca o mutare data este corecta
+  </li>
+  <li>
+    make_move - primeste o stare si o mutare si returneaza noua stare in care se afla jocul dupa executarea mutarii
+  </li>
+</ul>
+
+<h3>
+  MCTS.py
+</h3>
+<p>Clasa <b>MCTS</b> este o clasa ajutatoare care porneste algoritmul de cautare. Are o singura metoda generate_distribution care intoarce un vector cu perechi de tipul (miscare/rata castig) . Cu ajutorul ei putem de asemenea sa limitam numarul de noduri din arbore folosind argumentul no_iter </p>
 
 <h3>Dice.py</h3>
   <p>Clasa <b>Dice</b> reprezinta zarurile folosite in joc. O pereche de zaruri este reprezentata intern printr-un vector care este folosit mai departe in functiile de generare a miscarilor posibile pentru ambii jucatrori.</p>
